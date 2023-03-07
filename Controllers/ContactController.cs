@@ -1,8 +1,11 @@
+using System.Text.Json;
+using api.Helpers;
 using API.Data;
 using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace API.Controllers
 {
@@ -38,7 +41,7 @@ namespace API.Controllers
 
             var result = await _context.SaveChangesAsync();
 
-            if (result > 0) return Ok("Changes saved to database");
+            if (result > 0) return Ok("new contact saved to database");
 
             return BadRequest("Contact not saved to database");
         }
@@ -71,12 +74,6 @@ namespace API.Controllers
             return BadRequest("No updates were made");
         }
 
-        [HttpGet("GetContact/{id}")]
-        public async Task<ActionResult<AppContact>> GetContact(int id){
-            var contact = await _context.AppContact.Include(x=>x.PhoneNumbers).FirstOrDefaultAsync(x => x.Id == id);
-            return contact;
-        }
-
         [HttpDelete("DeleteContact/{id}")]
         public async Task<ActionResult> DeleteContact(int id){
             
@@ -94,6 +91,38 @@ namespace API.Controllers
             return BadRequest("Contact not deleted!");
 
         }
+
+        [HttpGet("GetContact/{id}")]
+        public async Task<ActionResult<AppContact>> GetContact(int id){
+            
+            var contact = await _context.AppContact.Include(x=>x.PhoneNumbers).FirstOrDefaultAsync(x => x.Id == id);
+            
+            if(contact == null) return BadRequest("Contact doesnt exist");
+
+            return contact;
+        }
+
+        [HttpGet("GetContactsPaginated")]
+        public async Task<ActionResult> GetContactsPaginated([FromQuery] ContactParams contactParams){
+
+            var contacts = _context.AppContact.Include(x=>x.PhoneNumbers)
+                .OrderBy(x => x.Name);
+
+            if(contacts == null) return BadRequest("No contacts to show");
+              
+            var pagination = new PagedList(contacts.Count(), contactParams.Page, contactParams.ItemsPerPage);
+            
+            var returnContacts  =  await contacts.
+                Skip((contactParams.Page - 1) * contactParams.ItemsPerPage)
+                .Take(contactParams.ItemsPerPage)
+                .ToListAsync();
+            
+            Response.Headers.Add("Pagination", System.Text.Json.JsonSerializer.Serialize(pagination));
+
+            return Ok(returnContacts); 
+    
+        }
+
 
 
 
