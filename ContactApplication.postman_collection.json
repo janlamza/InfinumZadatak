@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "6d10d393-2e5f-4876-8c1b-69bb0b4473c8",
+		"name": "ContactApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13241575"
+	},
+	"item": [
+		{
+			"name": "ContactController",
+			"item": [
+				{
+					"name": "Add New Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Bruno\",\r\n\"dateOfBirth\": \"1985-01-23\",\r\n\"address\": \"zadar street 12\",\r\n\"phoneNumbers\": [\r\n        {\r\n            \"phonenumber\": \"6666666666\"\r\n        },\r\n        {\r\n            \"phonenumber\": \"77777777777\"\r\n        }\r\n    ] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/Contact/AddContact",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Contact",
+								"AddContact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"id\": \"29\",\r\n\"name\": \"Roberto\",\r\n\"dateOfBirth\": \"1985-01-23\",\r\n\"address\": \"Vukovar 32\",\r\n\"phoneNumbers\": [\r\n        {   \r\n            \"id\": \"36\",\r\n            \"phonenumber\": \"10101010101\"\r\n        },\r\n        {   \r\n            \"id\": \"37\",\r\n            \"phonenumber\": \"20202020202\"\r\n        }\r\n    ] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/Contact/UpdateContact",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Contact",
+								"UpdateContact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Contact/GetContact/8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Contact",
+								"GetContact",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Contact/DeleteContact/7",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Contact",
+								"DeleteContact",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contacts, Paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/Contact/GetContactsPaginated/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"Contact",
+								"GetContactsPaginated",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TelephoneNumberController",
+			"item": [
+				{
+					"name": "Add Telephone Number to Contact /w ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Phonenumber\": \"69696969696966969\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/TelephoneNumber/AddTelephoneNumber/29",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"TelephoneNumber",
+								"AddTelephoneNumber",
+								"29"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Telephone Number with ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update Telephone Number",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"37\",\r\n    \"Phonenumber\": \"999999999999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/TelephoneNumber/UpdateTelephoneNumber",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"TelephoneNumber",
+								"UpdateTelephoneNumber"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://localhost:5001",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
