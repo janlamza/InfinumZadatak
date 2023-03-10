@@ -1,0 +1,132 @@
+[
+    {
+        "Name": "Jan",
+        "DateOfBirth": "1985-01-23",
+        "Address": "zagreb 23",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "11111111111111"
+            },
+            {
+                "Phonenumber": "222222222222222"
+            }
+        ]
+    },
+    {
+        "Name": "Gabi",
+        "DateOfBirth": "1985-01-23",
+        "Address": "varaždin 32",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "3333333333333333"
+            },
+            {
+                "Phonenumber": "44444444444444444"
+            }
+        ]
+    },
+    {
+        "Name": "Bruno",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Osijek 32",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "5555555555555555"
+            },
+            {
+                "Phonenumber": "6666666666666"
+            }
+        ]
+    },
+    {
+        "Name": "Julija",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Jankovci 33",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "77777777777777777"
+            },
+            {
+                "Phonenumber": "88888888888888888"
+            }
+        ]
+    },
+    {
+        "Name": "Mateo",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Međimurje 12",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "9999999999999999"
+            },
+            {
+                "Phonenumber": "1000000000000000"
+            }
+        ]
+    },
+    {
+        "Name": "Jura",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Split 3",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "110000000000000"
+            },
+            {
+                "Phonenumber": "120000000000000"
+            }
+        ]
+    },
+    {
+        "Name": "Ivana",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Vukovar 99",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "13000000000000"
+            },
+            {
+                "Phonenumber": "140000000000"
+            }
+        ]
+    },
+    {
+        "Name": "Borna",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Jastrebarsko 123",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "15000000000000"
+            },
+            {
+                "Phonenumber": "1600000000000000"
+            }
+        ]
+    },
+    {
+        "Name": "Tihana",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Požega 1",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "1700000000000"
+            },
+            {
+                "Phonenumber": "1800000000000"
+            }
+        ]
+    },
+    {
+        "Name": "Predrag",
+        "DateOfBirth": "1985-01-23",
+        "Address": "Gornji stupnik 113",
+        "PhoneNumbers": [
+            {
+                "Phonenumber": "1900000000000000"
+            },
+            {
+                "Phonenumber": "200000000000000000"
+            }
+        ]
+    }
+]
