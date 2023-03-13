@@ -11,6 +11,7 @@ The rest of the technologies required to implement a solution are your choice.
 * contacts need to be unique by name and address
 * creating, updating and deleting contacts
 * providing access to single and multiple contacts (with pagination)
+* providing a way of sending live updates to connected clients (signalR, websockets)
 <br/>
 Keep in mind that the focus is on the backend and the client app is not a requirement. But any
 additional feature can be added as long as the requested features from above are implemented.

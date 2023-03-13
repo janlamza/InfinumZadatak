@@ -4,6 +4,7 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -48,9 +49,9 @@ namespace API.Controllers
         public async Task<ActionResult> UpdateContact(AppContact updateContact)
         {
 
-            var contact = await _context.AppContact.AsNoTracking().Include(x => x.PhoneNumbers).FirstOrDefaultAsync(x => x.Id == updateContact.Id);
+            var contact = await _context.AppContact.AsNoTracking().AnyAsync(x => x.Id == updateContact.Id);
 
-            if (contact == null) return NotFound("Contact Not Found");
+            if (contact == false) return NotFound("Contact Not Found");
 
             var IsConstrained = await _context.AppContact.AnyAsync(x => x.Name == updateContact.Name || x.Address == updateContact.Address);
 
@@ -88,6 +89,12 @@ namespace API.Controllers
 
             var contact = await _context.AppContact.Include(x => x.PhoneNumbers).FirstOrDefaultAsync(x => x.Id == id);
 
+            //lazy loading
+            // var contact = await _context.AppContact
+            //     .Where(x => x.Id == id)
+            //     .ProjectTo<AddContactDTO>(_mapper.ConfigurationProvider)
+            //     .SingleOrDefaultAsync();
+
             if (contact == null) return BadRequest("Contact doesnt exist");
 
             return contact;
@@ -114,12 +121,5 @@ namespace API.Controllers
             return Ok(returnContacts);
 
         }
-
-
-
-
-
-
-
     }
 }

@@ -203,6 +203,27 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "LiveUpdatesController",
+			"item": [
+				{
+					"name": "Get Live Update of Contacts",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Live Update of Contact By Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

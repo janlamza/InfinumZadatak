@@ -1,4 +1,5 @@
 using API.Data;
+using API.Hubs;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,7 @@ builder.Services.AddControllersWithViews()
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -48,4 +50,5 @@ catch (Exception ex)
     logger.LogError(ex, "An error occured during migration");
 }
 
+app.MapHub<ContactsHub>("/contactshub");
 app.Run();

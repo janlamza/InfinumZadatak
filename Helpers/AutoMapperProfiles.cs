@@ -14,6 +14,8 @@ namespace API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<AddContactDTO, AppContact>();
+            CreateMap<AppContact, AddContactDTO>();
+            CreateMap<AppTelephoneNumber, AppTelephoneNumberDTO>();
             CreateMap<AppTelephoneNumberDTO, AppTelephoneNumber>();
             CreateMap<AppTelephoneNumberAddDTO, AppTelephoneNumber>();
 
