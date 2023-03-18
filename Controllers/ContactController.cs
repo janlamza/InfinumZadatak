@@ -105,11 +105,13 @@ namespace API.Controllers
         {
 
             var contacts = _context.AppContact.Include(x => x.PhoneNumbers)
-                .OrderBy(x => x.Name);
+                .OrderBy(x => x.Name).AsQueryable();
+            
+            var contactsCount= contacts.Count();
 
-            if (contacts == null) return BadRequest("No contacts to show");
+            if (contactsCount == 0) return BadRequest("No contacts to show");
 
-            var pagination = new PagedList(contacts.Count(), contactParams.Page, contactParams.ItemsPerPage);
+            var pagination = new PagedList(contactsCount, contactParams.Page, contactParams.ItemsPerPage);
 
             var returnContacts = await contacts
                 .Skip((contactParams.Page - 1) * contactParams.ItemsPerPage)
